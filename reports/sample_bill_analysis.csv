@@ -1,0 +1,2 @@
+total_kwh,bill_cost,cost_per_day,abnormal_increase_percent,standby_waste_kwh,standby_waste_cost,projected_annual_spend,anomaly_month,recommendations
+412,128.32,4.28,32.37,30.24,9.37,1561.27,2026-05,"Shift laundry, heating, and charging to off-peak hours. | Use smart plugs to reduce standby power waste. | Investigate the high-usage month for appliance faults or tariff changes. | Check high-load appliances such as immersion heaters, fridge/freezers, and dryers."
