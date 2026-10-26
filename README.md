@@ -51,5 +51,5 @@ PYTHONPATH=. python3 tools/export_sample_report.py
 ```
 
 ## Author
+Ansari Sufiyan
 
-Raymond Mokolo
