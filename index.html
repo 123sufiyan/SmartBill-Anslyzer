@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>SmartBill Analyzer</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-mark">S</div>
+        <div><strong>SmartBill</strong><span>Analyzer</span></div>
+      </div>
+      <nav>
+        <a class="active" href="#entry">Bill Entry</a>
+        <a href="#trends">Usage Trends</a>
+        <a href="#drivers">Cost Drivers</a>
+        <a href="#savings">Savings Plan</a>
+      </nav>
+      <div class="profile">
+        <span>Tariff</span>
+        <strong>Standard + Off-Peak</strong>
+        <small>Updated 2026-05-24</small>
+      </div>
+    </aside>
+
+    <main>
+      <header class="topbar">
+        <div>
+          <h1>Electricity Bill Analyzer</h1>
+          <p>Find abnormal bills, cost drivers, and realistic savings actions.</p>
+        </div>
+        <label>Month <select><option>2026-05</option><option>2026-04</option></select></label>
+        <div class="status"><span></span> Analysis Ready</div>
+      </header>
+
+      <section class="grid">
+        <form class="panel entry" id="entry">
+          <div class="panel-title"><h2>Bill Entry</h2><button id="reset" type="button">Reset</button></div>
+          <div class="form-grid">
+            <label>Previous Reading <span><input id="previous" type="number" value="12480" /> kWh</span></label>
+            <label>Current Reading <span><input id="current" type="number" value="12892" /> kWh</span></label>
+            <label>Unit Rate <span><input id="unitRate" type="number" value="0.31" step="0.01" /> /kWh</span></label>
+            <label>Off-Peak Rate <span><input id="offpeakRate" type="number" value="0.18" step="0.01" /> /kWh</span></label>
+            <label>Standing Charge <span><input id="standing" type="number" value="0.52" step="0.01" /> /day</span></label>
+            <label>Billing Days <span><input id="days" type="number" value="30" /> days</span></label>
+            <label class="wide">Peak Usage <output id="peakLabel">72%</output><input id="peak" type="range" min="0" max="100" value="72" /></label>
+            <label class="wide">Estimated Standby Load <span><input id="standby" type="number" value="42" /> W</span></label>
+          </div>
+        </form>
+
+        <section class="panel trends" id="trends">
+          <div class="panel-title"><h2>Usage Trends</h2><span id="anomaly">Anomaly: 2026-05</span></div>
+          <canvas id="trendChart" width="760" height="340"></canvas>
+        </section>
+
+        <section class="panel results">
+          <div class="panel-title"><h2>Results</h2><span id="riskBadge">High increase</span></div>
+          <div class="metrics">
+            <article><span>Total kWh</span><strong id="totalKwh">412</strong></article>
+            <article><span>Bill Cost</span><strong id="billCost">₹133.29</strong></article>
+            <article><span>Cost / Day</span><strong id="costDay">₹4.44</strong></article>
+            <article><span>Increase</span><strong id="increase">32.43%</strong></article>
+            <article><span>Standby Waste</span><strong id="standbyCost">₹9.37</strong></article>
+            <article><span>Annual Spend</span><strong id="annual">₹1621.98</strong></article>
+          </div>
+        </section>
+
+        <section class="panel" id="drivers">
+          <div class="panel-title"><h2>Cost Drivers</h2></div>
+          <canvas id="driverChart" width="620" height="300"></canvas>
+        </section>
+
+        <section class="panel" id="savings">
+          <div class="panel-title"><h2>Savings Plan</h2></div>
+          <table>
+            <thead><tr><th>Action</th><th>Impact</th><th>Payback</th></tr></thead>
+            <tbody id="savingsRows"></tbody>
+          </table>
+        </section>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
